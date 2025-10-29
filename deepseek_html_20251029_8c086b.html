@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crypto Noob Roast Generator</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            background: #000;
+            color: #fff;
+            font-family: 'Arial', sans-serif;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 100%);
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            text-align: center;
+        }
+        
+        .header {
+            margin-bottom: 40px;
+        }
+        
+        h1 {
+            font-size: 3rem;
+            background: linear-gradient(45deg, #f0b90b, #ff6b6b);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
+        }
+        
+        .subtitle {
+            color: #888;
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+        
+        .roast-container {
+            background: #1a1a2e;
+            border: 2px solid #f0b90b;
+            border-radius: 15px;
+            padding: 40px;
+            margin: 30px 0;
+            min-height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .roast-text {
+            font-size: 1.4rem;
+            color: #f0b90b;
+            font-weight: bold;
+            line-height: 1.6;
+        }
+        
+        .generate-btn {
+            background: linear-gradient(45deg, #f0b90b, #ffa726);
+            color: #000;
+            border: none;
+            padding: 20px 40px;
+            font-size: 1.2rem;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin: 10px;
+        }
+        
+        .generate-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(240, 185, 11, 0.4);
+        }
+        
+        .donate-section {
+            background: linear-gradient(135deg, #1a1a2e, #16213e);
+            border: 2px solid #f0b90b;
+            border-radius: 15px;
+            padding: 30px;
+            margin: 40px 0;
+            text-align: center;
+        }
+        
+        .donate-title {
+            color: #f0b90b;
+            font-size: 2rem;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+        
+        .noob-callout {
+            font-size: 1.3rem;
+            color: #ff6b6b;
+            margin: 15px 0;
+            font-weight: bold;
+            background: rgba(255, 107, 107, 0.1);
+            padding: 10px;
+            border-radius: 8px;
+        }
+        
+        .wallet-address {
+            background: #0a0a0a;
+            padding: 15px;
+            border-radius: 10px;
+            margin: 20px 0;
+            font-family: monospace;
+            font-size: 1.1rem;
+            word-break: break-all;
+            border: 1px solid #f0b90b;
+            color: #f0b90b;
+        }
+        
+        .copy-btn {
+            background: #f0b90b;
+            color: #000;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 25px;
+            cursor: pointer;
+            margin: 10px;
+            transition: all 0.3s ease;
+            font-weight: bold;
+        }
+        
+        .copy-btn:hover {
+            background: #ffd166;
+            transform: translateY(-2px);
+        }
+        
+        .reminder {
+            background: linear-gradient(45deg, #ff6b6b, #ffa726);
+            color: #000;
+            padding: 15px;
+            border-radius: 10px;
+            margin: 20px 0;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+        
+        .stats {
+            margin-top: 40px;
+            color: #888;
+        }
+        
+        .warning {
+            color: #ff6b6b;
+            font-size: 0.9rem;
+            margin-top: 20px;
+            padding: 15px;
+            background: rgba(255, 107, 107, 0.1);
+            border-radius: 8px;
+        }
+        
+        .crypto-jokes {
+            background: #1a1a2e;
+            border: 1px solid #333;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+            text-align: left;
+        }
+        
+        .crypto-jokes h3 {
+            color: #f0b90b;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        
+        .cz-roast {
+            background: linear-gradient(45deg, #ff6b6b, #ffa726);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: bold;
+            margin: 10px 0;
+            text-align: center;
+            font-size: 1.1rem;
+        }
+        
+        .donation-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+        
+        .stat-box {
+            background: #1a1a2e;
+            padding: 20px;
+            border-radius: 10px;
+            border: 1px solid #333;
+        }
+        
+        .stat-box h4 {
+            color: #f0b90b;
+            margin-bottom: 10px;
+        }
+        
+        .meme-text {
+            font-style: italic;
+            color: #888;
+            margin: 15px 0;
+        }
+        
+        .noob-level {
+            background: #ff6b6b;
+            color: #000;
+            padding: 5px 10px;
+            border-radius: 15px;
+            font-weight: bold;
+            margin: 0 5px;
+        }
+        
+        .shitcoin-announcement {
+            background: linear-gradient(45deg, #ff00ff, #00ffff);
+            color: #000;
+            padding: 20px;
+            border-radius: 15px;
+            margin: 25px 0;
+            font-weight: bold;
+            font-size: 1.2rem;
+            border: 3px dashed #f0b90b;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+            100% { transform: scale(1); }
+        }
+        
+        .tokenomics {
+            background: #1a1a2e;
+            border: 2px solid #ff00ff;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+            text-align: left;
+        }
+        
+        .tokenomics h4 {
+            color: #ff00ff;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        
+        .roadmap {
+            background: #1a1a2e;
+            border: 2px solid #00ffff;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        
+        .roadmap h4 {
+            color: #00ffff;
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>💸 CRYPTO NOOB ROAST GENERATOR</h1>
+            <p class="subtitle">Stop being a <span class="noob-level">NOOB</span> and send BNB already!</p>
+        </div>
+        
+        <!-- Shitcoin Announcement -->
+        <div class="shitcoin-announcement">
+            🚀 COMING SOON: $NOOB Coin - The Useless Shitcoin You Deserve! 🚀<br>
+            <small>Presale: Send BNB to this address and pray we actually launch it!</small>
+        </div>
+        
+        <div class="reminder">
+            🚨 ATTENTION NOOB: SEND BNB TO 0x3258afb237cb4f264f4e281bd9c292dafa746b97 OR STAY POOR! 🚨
+        </div>
+        
+        <div class="roast-container">
+            <div class="roast-text" id="roastText">
+                Click below to get roasted, you future millionaire!
+            </div>
+        </div>
+        
+        <button class="generate-btn" onclick="generateCryptoRoast()">
+            🚀 GET ROASTED (STILL FREE, YOU BROKE NOOB!) 🚀
+        </button>
+        
+        <!-- Broke Crypto Noob Donation Section -->
+        <div class="donate-section">
+            <h2 class="donate-title">💎 BROKE NOOB DONATION STATION</h2>
+            
+            <div class="noob-callout" id="noobCallout">
+                "You're such a noob, you probably think CZ is a rapper!"
+            </div>
+            
+            <div class="reminder">
+                📢 NOOB ALERT: That $1 in BNB you're hoarding won't make you rich! SEND IT!
+            </div>
+            
+            <div class="wallet-address" id="walletAddress">
+                0x3258afb237cb4f264f4e281bd9c292dafa746b97
+            </div>
+            
+            <button class="copy-btn" onclick="copyWalletAddress()">
+                📋 Copy Wallet (Do it, noob!)
+            </button>
+            
+            <!-- Tokenomics Section -->
+            <div class="tokenomics">
+                <h4>💰 $NOOB Tokenomics (We Made This Up)</h4>
+                <p>• 50%: Dev wallets (aka our Lambo fund)</p>
+                <p>• 30%: Marketing (this website)</p>
+                <p>• 15%: CZ tribute tax</p>
+                <p>• 5%: Actually building something maybe</p>
+                <p>• 100%: Guaranteed to go to zero</p>
+            </div>
+            
+            <div class="noob-callout">
+                ⚠️ Warning: Not sending BNB confirms you're a permanent <span class="noob-level">NOOB</span>
+            </div>
+            
+            <div class="donation-stats">
+                <div class="stat-box">
+                    <h4>📊 Noob Portfolio Status</h4>
+                    <p>Your ROI: <span id="roiStatus">-95%</span></p>
+                    <p>Lambo: <span id="lamboStatus">Still dreaming</span></p>
+                    <p>Noob Level: <span id="noobLevel">Expert Noob</span></p>
+                </div>
+                <div class="stat-box">
+                    <h4>💸 Donation Impact</h4>
+                    <p>BNB Donated: <span id="bnbDonated">0.00</span></p>
+                    <p>CZ's Laughs: <span id="czLaughs">0</span></p>
+                    <p>Noobs Helped: <span id="noobsHelped">0</span></p>
+                </div>
+                <div class="stat-box">
+                    <h4>🪙 $NOOB Presale</h4>
+                    <p>Funds Raised: <span id="presaleRaised">0.00</span> BNB</p>
+                    <p>Your Allocation: <span id="noobAllocation">0</span> $NOOB</p>
+                    <p>Rug Risk: <span id="rugRisk">Extreme</span></p>
+                </div>
+            </div>
+            
+            <!-- Roadmap -->
+            <div class="roadmap">
+                <h4>🗺️ $NOOB Roadmap (Probably Fake)</h4>
+                <p>Phase 1: Take your BNB ✅</p>
+                <p>Phase 2: Create Telegram group ❌</p>
+                <p>Phase 3: Blame CZ for everything ❌</p>
+                <p>Phase 4: Rug pull & disappear ❌</p>
+            </div>
+            
+            <div class="crypto-jokes">
+                <h3>🎯 CZ & BINANCE ROASTS (BECAUSE YOU'RE A NOOB)</h3>
+                <div class="cz-roast" id="czRoast">
+                    CZ's net worth is so high, he uses your portfolio as a rounding error!
+                </div>
+            </div>
+            
+            <div class="reminder">
+                💡 NOOB TIP: That BNB you're not sending is losing value faster than your shitcoins!
+            </div>
+            
+            <div class="shitcoin-announcement">
+                🎪 $NOOB Coin: The Only Shitcoin That Admits It's Useless!<br>
+                <small>Send BNB now for absolutely nothing in return! 🎯</small>
+            </div>
+        </div>
+        
+        <div class="stats">
+            <p>Roasts delivered: <span id="roastCount">0</span></p>
+            <p>Portfolios destroyed: <span id="portfolioCount">0</span></p>
+            <p>BNB donated by noobs: <span id="donationCount">0.00</span></p>
+            <p>Noobs identified: <span id="noobsIdentified">1</span></p>
+            <p>$NOOB believers: <span id="noobBelievers">0</span></p>
+        </div>
+        
+        <div class="warning">
+            ⚠️ Disclaimer: This is satire for entertainment purposes only. Not financial advice. 
+            We love CZ and Binance (please don't ban us!). $NOOB coin is 100% fictional and absolutely useless. 
+            Sending BNB may not actually make you less of a noob, but it's worth a try!
+        </div>
+    </div>
+
+    <script>
+        let roastCount = 0;
+        let portfolioCount = 0;
+        let bnbDonated = 0;
+        let czLaughs = 0;
+        let noobsIdentified = 1;
+        let noobsHelped = 0;
+        let noobBelievers = 0;
+        let presaleRaised = 0;
+
+        const cryptoRoasts = [
+            "Your portfolio is so red, it makes a communist parade look beige.",
+            "You bought the top and sold the bottom so many times, it's your signature move.",
+            "Your trading strategy has more holes than the Titanic after meeting an iceberg.",
+            "You're so bad at trading, even your HODL bags have abandonment issues.",
+            "Your ROI is so negative, mathematicians are studying it as a new number below zero.",
+            "You could've made more money flipping burgers than flipping your shitcoins.",
+            "Your portfolio is so diversified, it's losing money in 15 different sectors.",
+            "You've been 'early' to so many projects, you're basically a historical artifact.",
+            "Your trading screens look like a murder scene from a horror movie.",
+            "You're so bullish, you think every dip is a 'buying opportunity'... even the -90% ones.",
+            "Your exit strategy is hoping the project gets listed on Robinhood.",
+            "You've been rugged so many times, you should wear a hard hat to your computer.",
+            "Your moonbags are so heavy, even SpaceX couldn't launch them.",
+            "You're the reason why 'not financial advice' disclaimers exist.",
+            "Your portfolio is so bad, even stablecoins are losing value in it.",
+            "You've mastered the art of buying high and selling low - it's your superpower.",
+            "Your crypto knowledge comes entirely from memes and you're proud of it.",
+            "You're so deep in shitcoins, your wallet needs a gas mask.",
+            "Your trading career has more red candles than a Chinese New Year celebration.",
+            "You're the living proof that 'number go up' is not an investment strategy.",
+            "Your stop-loss is so tight, it gets triggered by market sentiment.",
+            "You've been 'accumulating' so long, you're basically a crypto hoarder.",
+            "Your portfolio is so volatile, it makes Bitcoin look like a savings account.",
+            "You're so bad at this, even your paper trading account is in the red.",
+            "Your moon dreams are further away than Pluto's orbit.",
+            "You've held through so many dips, you're basically a crypto martyr.",
+            "Your trading signals come from your horoscope and your cat's mood.",
+            "You're so rekt, even the IRS feels sorry for you.",
+            "Your portfolio is so complex, even you don't know what you own anymore.",
+            "You're the reason why 'DYOR' was invented - but you still don't listen.",
+            "Your shitcoin collection makes Beanie Babies look like a solid investment.",
+            "You've been in crypto since 2021 and still call yourself an 'OG'.",
+            "Your trading strategy is based entirely on Twitter influencers who shill for a living.",
+            "You're so deep in leverage, your margin calls have their own zip code.",
+            "Your crypto gains are so imaginary, they belong in a fantasy novel.",
+            "You've been 'waiting for the bull market' so long, you're growing horns.",
+            "Your portfolio is so bad, even the scam coins feel sorry for you.",
+            "You're so confident in your shitcoin, you've convinced your grandma to invest.",
+            "Your exit liquidity is so reliable, whales send you thank you cards.",
+            "You've been 'staking' so long, your coins have grown roots.",
+            "Your trading career has more plot twists than a telenovela.",
+            "You're so rekt, your wallet balance needs scientific notation.",
+            "Your moonbags are so heavy, they're affecting local gravity.",
+            "You've been through so many bear markets, you're basically a crypto bear.",
+            "Your portfolio is so diverse, it's losing value in multiple time zones.",
+            "You're so bad at timing the market, you could miss a clock.",
+            "Your crypto knowledge is based entirely on what you read in Telegram groups.",
+            "You've been 'accumulating' the same shitcoin since it dropped 99%.",
+            "Your trading strategy has more red flags than a communist parade.",
+            "You're so deep in the red, traffic stops when you check your portfolio.",
+            "You're such a noob, you think CZ stands for 'Crypto Zombie'",
+            "Your trading skills are so bad, you make SBF look like Warren Buffett",
+            "You're the reason why Bitcoin has warning labels",
+            "Your portfolio is so small, CZ wouldn't notice if it disappeared",
+            "You're such a noob, you think 'HODL' is a misspelling of 'HOLD'",
+            "Your crypto journey has more L's than the alphabet",
+            "You're so broke, you use Binance's testnet to feel rich",
+            "Your investment strategy is 'buy high, panic sell low'",
+            "You're such a noob, you think gas fees are for your car",
+            "Your moon mission failed before launch... repeatedly",
+            "You're so bad at this, even your hardware wallet is considering leaving you",
+            "Your crypto predictions are less accurate than weather forecasts",
+            "You're such a noob, you think DeFi is 'definitely finance'",
+            "Your trading career is a cautionary tale for generations to come",
+            "You're so rekt, even the blockchain feels sorry for you",
+            "Your portfolio is so volatile, it gives motion sickness",
+            "You're such a noob, you think CZ is your friend because he follows you on Twitter",
+            "Your crypto gains are like Bigfoot - everyone talks about them but nobody's seen them",
+            "You're so bad at trading, you could lose money in a bull market",
+            "Your understanding of crypto is based entirely on YouTube thumbnails",
+            "You're such a noob, you think 'ATH' means 'Another Terrible Hold'",
+            "Your investment thesis is 'line go up' but the line keeps going down",
+            "You're so desperate, you're taking financial advice from memecoins",
+            "Your crypto portfolio has more red than a tomato convention",
+            "You're such a noob, you think CZ personally checks your KYC",
+            "Your trading strategy is based on which coin has the coolest logo",
+            "You're so rekt, even the SEC pities you",
+            "Your moonbags are filled with rocks instead of rockets",
+            "You're such a noob, you think 'staking' means putting coins in a steak",
+            "Your crypto knowledge would fit in a Satoshi",
+            "You're so bad at this, you could lose money in a savings account",
+            "Your portfolio is so small, it's measured in Satoshis... negative Satoshis",
+            "You're such a noob, you think CZ sleeps with a Lambo under his pillow",
+            "Your trading career has more crashes than Windows 95",
+            "You're so desperate for gains, you're investing in ICOs from 2017",
+            "Your crypto strategy is 'buy, pray, cry'",
+            "You're such a noob, you think Binance is a dating app for crypto enthusiasts",
+            "Your portfolio is so bad, it could be used as torture material",
+            "You're so rekt, even your dog is ashamed of your trading",
+            "Your moon mission got lost on the way to the launchpad",
+            "You're such a noob, you think 'FUD' is a type of food",
+            "Your trading skills are so poor, you make luck look like a strategy",
+            "You're so bad at crypto, you think 'wallet' is something you sit on",
+            "Your portfolio has more issues than Vogue magazine",
+            "You're such a noob, you think CZ personally delivers your BNB",
+            "Your crypto journey is like a Shakespeare tragedy but with more losses",
+            "You're so desperate, you're taking advice from your Uber driver",
+            "Your trading strategy is 'whatever Coinbase recommends'",
+            "You're such a noob, you think 'NFT' stands for 'No Financial Talent'",
+            "Your portfolio is so red, it could be used as a stop sign",
+            "You're so rekt, even the metaverse doesn't want your avatar",
+            "Your moonbags are so light, they float away in a gentle breeze",
+            "You're such a noob, you think 'DeFi summer' is a music festival",
+            "You're so bad at crypto, you think $NOOB coin is a good investment",
+            "Your trading strategy is so weak, even our fake tokenomics make more sense",
+            "You're such a noob, you'll probably buy $NOOB and then blame CZ when it rugs",
+            "Your portfolio is so desperate, you're considering our shitcoin presale",
+            "You're so rekt, $NOOB coin might actually improve your portfolio"
+        ];
+
+        const czRoasts = [
+            "CZ wakes up every morning and makes more money than your entire net worth before his first coffee.",
+            "CZ's pocket change could bail out your entire portfolio... twice.",
+            "When CZ sneezes, the entire crypto market catches a cold except your portfolio - it gets pneumonia.",
+            "CZ's net worth is so high, he uses BNB as confetti at parties.",
+            "CZ could buy your entire life with the BNB he finds in his couch cushions.",
+            "When CZ says 'funds are safu', he's not talking about your $50 portfolio.",
+            "CZ's daily profit is more than you'll make in your entire crypto career.",
+            "CZ has more security in his pinky finger than your entire 'secure' wallet.",
+            "CZ's 'small assets' conversion cleaned up more dust than your entire portfolio value.",
+            "CZ could delist your favorite coin and it would affect the market more than your entire trading history.",
+            "CZ's Binance card has a higher limit than your wildest crypto dreams.",
+            "When CZ tweets, whales listen. When you tweet, your mom likes it.",
+            "CZ's 'modest' crypto holdings are worth more than your country's GDP.",
+            "CZ's coffee budget is larger than your entire investment portfolio.",
+            "CZ has more verified KYC accounts than you have dollars in your bank account.",
+            "CZ's 'diamond hands' could crush your entire portfolio without noticing.",
+            "When CZ takes a day off, the crypto market takes a sick day too.",
+            "CZ's pocket lint has more market influence than your entire trading strategy.",
+            "CZ's 'small test transaction' is bigger than your life savings.",
+            "CZ could accidentally send you BNB and it would be the best trade you ever made.",
+            "CZ's watch costs more than your entire crypto journey",
+            "When CZ checks his phone, your portfolio fluctuates",
+            "CZ has more Lambos than you have successful trades",
+            "CZ's breakfast costs more than your entire net worth",
+            "CZ could solve world hunger with his loose change",
+            "When CZ says 'HODL', whales listen. When you say it, you're coping",
+            "CZ's private jet uses more fuel than your portfolio is worth",
+            "CZ has more security than your entire existence",
+            "CZ's 'small investment' is your wildest dream",
+            "CZ could buy Twitter just to unfollow you",
+            "When CZ blinks, the market moves. When you blink, you miss another pump",
+            "CZ's shoes cost more than your entire crypto portfolio",
+            "CZ has more influence than your entire family tree",
+            "CZ's lunch money could solve your financial problems",
+            "CZ could end your crypto career with a single tweet",
+            "When CZ speaks, nations listen. When you speak, your dog ignores you",
+            "CZ's wristwatch has more computing power than your trading strategy",
+            "CZ has more power in his pinky than you have in your entire being",
+            "CZ's morning routine creates more wealth than your life's work",
+            "CZ could buy the moon and still have change for Mars",
+            "When CZ invests, markets move. When you invest, you get rekt",
+            "CZ's signature is worth more than your entire existence",
+            "CZ has more intelligence in his sleep than you have awake",
+            "CZ's coffee machine has more market insight than you",
+            "CZ could end world poverty but he's too busy counting your losses",
+            "When CZ breathes, crypto markets inhale and exhale",
+            "CZ's socks are made from more valuable material than your portfolio",
+            "CZ has more charisma in his left shoe than you have in your entire body",
+            "CZ's grocery list has more financial wisdom than your trading plan",
+            "CZ could buy your soul but he's not interested in damaged goods",
+            "CZ is probably reading this and laughing at your $NOOB allocation",
+            "CZ's morning dump is worth more than your $NOOB coin dreams",
+            "CZ could rug pull $NOOB coin and it would be the most successful thing that ever happened to it",
+            "CZ's sneeze has more utility than our entire $NOOB tokenomics",
+            "CZ probably owns more $NOOB than you and he doesn't even know it exists",
+            "CZ's pet hamster has better trading instincts than your $NOOB investment strategy"
+        ];
+
+        const noobCallouts = [
+            "You're such a noob, you probably think CZ is a rapper!",
+            "Noob alert: That BNB isn't going to send itself!",
+            "Stop being a noob and send some BNB already!",
+            "Even CZ thinks you're a noob for not sending BNB!",
+            "Your noob level is showing - SEND BNB!",
+            "CZ would roast you harder than we do for being such a noob!",
+            "Noob move: Reading this instead of sending BNB!",
+            "Your noob status is confirmed until you send BNB!",
+            "CZ's watching and judging you, noob!",
+            "Stop noobing around and send that BNB!",
+            "You're such a noob, you'll probably buy $NOOB coin!",
+            "Noob confirmed: You're actually considering our shitcoin!",
+            "Even $NOOB coin thinks you're a noob!",
+            "Your noob level is so high, $NOOB might actually moon for you!",
+            "CZ is judging you for reading $NOOB tokenomics!"
+        ];
+
+        function generateCryptoRoast() {
+            const randomRoast = cryptoRoasts[Math.floor(Math.random() * cryptoRoasts.length)];
+            const randomCzRoast = czRoasts[Math.floor(Math.random() * czRoasts.length)];
+            const randomNoobCallout = noobCallouts[Math.floor(Math.random() * noobCallouts.length)];
+            
+            document.getElementById('roastText').textContent = randomRoast;
+            document.getElementById('czRoast').textContent = randomCzRoast;
+            document.getElementById('noobCallout').textContent = randomNoobCallout;
+            
+            // Add animation
+            document.getElementById('roastText').style.animation = 'none';
+            setTimeout(() => {
+                document.getElementById('roastText').style.animation = 'fadeIn 0.5s ease-in';
+            }, 10);
+            
+            roastCount++;
+            portfolioCount += Math.floor(Math.random() * 3) + 1;
+            noobsIdentified++;
+            
+            document.getElementById('roastCount').textContent = roastCount;
+            document.getElementById('portfolioCount').textContent = portfolioCount;
+            document.getElementById('noobsIdentified').textContent = noobsIdentified;
+            
+            // Random status for fun
+            const roiOptions = ["-95%", "-87%", "-99%", "Still calculating...", "Error 404: Gains not found", "Yes"];
+            document.getElementById('roiStatus').textContent = roiOptions[Math.floor(Math.random() * roiOptions.length)];
+            
+            const lamboOptions = ["Still dreaming", "2 more weeks!", "When Lambo?", "Lost in shipping", "Can't afford gas", "CZ took it"];
+            document.getElementById('lamboStatus').textContent = lamboOptions[Math.floor(Math.random() * lamboOptions.length)];
+            
+            const noobLevels = ["Expert Noob", "Pro Noob", "Noob Master", "Legendary Noob", "CZ's Favorite Noob"];
+            document.getElementById('noobLevel').textContent = noobLevels[Math.floor(Math.random() * noobLevels.length)];
+            
+            const rugRisks = ["Extreme", "Very High", "Certain", "Guaranteed", "CZ Approved"];
+            document.getElementById('rugRisk').textContent = rugRisks[Math.floor(Math.random() * rugRisks.length)];
+        }
+
+        function copyWalletAddress() {
+            const walletAddress = "0x3258afb237cb4f264f4e281bd9c292dafa746b97";
+            navigator.clipboard.writeText(walletAddress).then(() => {
+                // Update donation stats for fun
+                bnbDonated += (Math.random() * 0.1);
+                presaleRaised += (Math.random() * 0.05);
+                czLaughs += Math.floor(Math.random() * 5) + 1;
+                noobsHelped++;
+                noobBelievers++;
+                
+                document.getElementById('bnbDonated').textContent = bnbDonated.toFixed(4);
+                document.getElementById('presaleRaised').textContent = presaleRaised.toFixed(4);
+                document.getElementById('czLaughs').textContent = czLaughs;
+                document.getElementById('donationCount').textContent = bnbDonated.toFixed(4);
+                document.getElementById('noobsHelped').textContent = noobsHelped;
+                document.getElementById('noobBelievers').textContent = noobBelievers;
+                document.getElementById('noobAllocation').textContent = Math.floor(Math.random() * 1000000);
+                
+                // Change button text temporarily
+                const button = event.target;
+                const originalText = button.textContent;
+                button.textContent = "✅ Copied! CZ Approves!";
+                button.style.background = '#4CAF50';
+                
+                setTimeout(() => {
+                    button.textContent = "📋 Copy Wallet (Do it, noob!)";
+                    button.style.background = '';
+                }, 2000);
+            });
+        }
+
+        // Add some animation
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes fadeIn {
+                from { opacity: 0; transform: translateY(10px); }
+                to { opacity: 1; transform: translateY(0); }
+            }
+        `;
+        document.head.appendChild(style);
+
+        // Initial roast
+        generateCryptoRoast();
+
+        // Auto-reminder every 30 seconds
+        setInterval(() => {
+            const reminders = [
+                "🚨 NOOB REMINDER: SEND BNB TO 0x3258afb237cb4f264f4e281bd9c292dafa746b97!",
+                "📢 ATTENTION NOOB: THAT BNB ISN'T MAKING YOU RICH! SEND IT!",
+                "💸 CZ IS WATCHING AND JUDGING YOU, NOOB! SEND BNB!",
+                "⚠️ NOOB ALERT: YOUR PORTFOLIO NEEDS HELP! SEND BNB!",
+                "🎯 STOP BEING A NOOB! SEND BNB TO THE WALLET!",
+                "🪙 $NOOB COIN PRESALE LIVE! SEND BNB BEFORE WE RUG!",
+                "💀 CZ APPROVES THIS MESSAGE! SEND BNB, NOOB!",
+                "🚀 $NOOB TO THE MOON! (JUST KIDDING, SEND BNB ANYWAY)",
+                "🎪 JOIN THE $NOOB CIRCUS! SEND BNB AND GET NOTHING!",
+                "🤡 YOU'RE ALREADY A CLOWN, MIGHT AS WELL BUY $NOOB!"
+            ];
+            document.querySelector('.reminder').textContent = reminders[Math.floor(Math.random() * reminders.length)];
+        }, 30000);
+    </script>
+</body>
+</html>
